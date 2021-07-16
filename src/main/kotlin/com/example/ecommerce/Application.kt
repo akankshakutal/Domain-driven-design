@@ -18,10 +18,18 @@ fun main() {
     addProductToCart(heroInkPenItem, cart)
     addProductToCart(gmCricketBatItem, cart)
 
-    cart.removeProduct(ipadProItem)
-    removedItem.add(ipadProItem)
+    removeItemFromCart(cart, ipadProItem, removedItem)
     println("Items in cart ${cart.cartItems}")
-    removedItem.forEach { it -> println("Removed item: ${it.product}") }
+    removedItem.forEach { println("Removed item: ${it.product}") }
+}
+
+private fun removeItemFromCart(
+    cart: Cart,
+    itemToRemove: CartItem,
+    removedItem: MutableList<CartItem>
+) {
+    cart.removeProduct(itemToRemove)
+    removedItem.add(itemToRemove)
 }
 
 
