@@ -8,6 +8,7 @@ fun main() {
     println("Starting")
 
     val cart = Cart()
+    val removedItem = mutableListOf<CartItem>()
 
     val ipadProItem = CartItem(Product("Ipad Pro"), 1)
     val heroInkPenItem = CartItem(Product("Hero ink Pen"), 1)
@@ -18,8 +19,9 @@ fun main() {
     addProductToCart(gmCricketBatItem, cart)
 
     cart.removeProduct(ipadProItem)
-
+    removedItem.add(ipadProItem)
     println("Items in cart ${cart.cartItems}")
+    removedItem.forEach { it -> println("Removed item: ${it.product}") }
 }
 
 
