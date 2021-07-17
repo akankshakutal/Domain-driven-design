@@ -1,24 +1,19 @@
 package com.example.ecommerce
 
-import com.example.ecommerce.domain.Cart
-import com.example.ecommerce.domain.CartItem
-import com.example.ecommerce.domain.Price
-import com.example.ecommerce.domain.Product
+import com.example.ecommerce.domain.*
 import com.example.ecommerce.domain.service.ProductPriceService
 
-
 fun main() {
-    val ipadPro = "Ipad Pro"
-    val cricketBat = "GM Cricket bat"
-    val heroInkPen = "Hero ink Pen"
-
     val cart = Cart()
     val newCart = Cart()
     val productPriceService = ProductPriceService()
 
-    val ipadProProduct = Product(ipadPro, productPriceService.getProducePrice(ipadPro, 100.0))
-    val heroInkPenProduct = Product(heroInkPen, productPriceService.getProducePrice(heroInkPen, 50.0))
-    val cricketBatProduct = Product(cricketBat, productPriceService.getProducePrice(cricketBat, 900.0))
+    val ipadProProduct =
+        Product(ProductName.IPAD_PRO.name, productPriceService.getProducePrice(ProductName.IPAD_PRO, 100.0))
+    val heroInkPenProduct =
+        Product(ProductName.HERO_INK_PEN.name, productPriceService.getProducePrice(ProductName.HERO_INK_PEN, 50.0))
+    val cricketBatProduct =
+        Product(ProductName.CRICKET_BAT.name, productPriceService.getProducePrice(ProductName.CRICKET_BAT, 900.0))
 
     val ipadProItem = CartItem(ipadProProduct, 1)
     cart.addProduct(CartItem(ipadProProduct, 1))

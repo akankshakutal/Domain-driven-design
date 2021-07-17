@@ -1,19 +1,17 @@
 package com.example.ecommerce.domain.service
 
 import com.example.ecommerce.domain.Price
+import com.example.ecommerce.domain.ProductName
 
 class ProductPriceService {
 
-    val ipadPro = "Ipad Pro"
-    val cricketBat = "GM Cricket bat"
-
     private val competitorProductPrices = mapOf(
-        ipadPro to Price(100.0),
-        cricketBat to Price(100.0)
+        ProductName.IPAD_PRO to Price(100.0),
+        ProductName.CRICKET_BAT to Price(200.0)
     )
 
-    public fun getProducePrice(
-        productName: String,
+    fun getProducePrice(
+        productName: ProductName,
         productPrice: Double
     ): Price {
         val price = competitorProductPrices.get(productName)?.amount
