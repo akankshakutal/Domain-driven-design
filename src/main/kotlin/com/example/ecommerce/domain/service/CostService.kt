@@ -5,10 +5,10 @@ import com.example.ecommerce.domain.Cart
 class CostService {
 
     fun calculateShippingCost(cart: Cart): Double {
-        if (cart.getCartItemWeight() < 100) {
-            return 100.0
+        return if (cart.getCartItemWeight() < 100) {
+            100.0
         } else {
-            return 200.0
+            200.0
         }
     }
 }

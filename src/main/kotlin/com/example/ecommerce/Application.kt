@@ -1,13 +1,14 @@
 package com.example.ecommerce
 
 import com.example.ecommerce.domain.*
+import com.example.ecommerce.domain.service.OrderService
 import com.example.ecommerce.domain.service.ProductPriceService
 
 fun main() {
     val cart = Cart()
     val newCart = Cart()
     val productPriceService = ProductPriceService()
-    val order = Order()
+    val order = OrderService()
 
     val ipadProProduct =
         Product(ProductName.IPAD_PRO.name, productPriceService.getProducePrice(ProductName.IPAD_PRO, 100.0), 150.0)

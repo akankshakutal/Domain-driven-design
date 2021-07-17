@@ -1,8 +1,8 @@
-package com.example.ecommerce.domain
+package com.example.ecommerce.domain.service
 
-import com.example.ecommerce.domain.service.CostService
+import com.example.ecommerce.domain.Cart
 
-class Order {
+class OrderService {
 
     fun placeOrder(cart: Cart) {
         val cartItems = cart.cartItems
