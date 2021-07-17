@@ -5,23 +5,19 @@ import com.example.ecommerce.domain.CartItem
 import com.example.ecommerce.domain.Product
 
 fun main() {
-    println("Starting")
-
     val cart = Cart()
 
     val ipadProItem = CartItem(Product("Ipad Pro"), 1)
     val heroInkPenItem = CartItem(Product("Hero ink Pen"), 1)
     val gmCricketBatItem = CartItem(Product("GM Cricket bat"), 2)
 
-    addProductToCart(ipadProItem, cart)
-    addProductToCart(heroInkPenItem, cart)
-    addProductToCart(gmCricketBatItem, cart)
+    cart.addProduct(ipadProItem)
+    cart.addProduct(heroInkPenItem)
+    cart.addProduct(gmCricketBatItem)
 
     cart.removeProduct(ipadProItem)
+
     println("Items in cart ${cart.cartItems}")
-    println(" Removed Items in cart ${cart.removedCartItems}")
+
+    println("Removed items:  ${cart.getDomainEvents()}")
 }
-
-
-private fun addProductToCart(cartItem: CartItem, cart: Cart) = cart.addProduct(cartItem)
-
