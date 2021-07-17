@@ -7,13 +7,22 @@ fun main() {
     val cart = Cart()
     val newCart = Cart()
     val productPriceService = ProductPriceService()
+    val order = Order()
 
     val ipadProProduct =
-        Product(ProductName.IPAD_PRO.name, productPriceService.getProducePrice(ProductName.IPAD_PRO, 100.0))
+        Product(ProductName.IPAD_PRO.name, productPriceService.getProducePrice(ProductName.IPAD_PRO, 100.0), 150.0)
     val heroInkPenProduct =
-        Product(ProductName.HERO_INK_PEN.name, productPriceService.getProducePrice(ProductName.HERO_INK_PEN, 50.0))
+        Product(
+            ProductName.HERO_INK_PEN.name,
+            productPriceService.getProducePrice(ProductName.HERO_INK_PEN, 50.0),
+            156.0
+        )
     val cricketBatProduct =
-        Product(ProductName.CRICKET_BAT.name, productPriceService.getProducePrice(ProductName.CRICKET_BAT, 900.0))
+        Product(
+            ProductName.CRICKET_BAT.name,
+            productPriceService.getProducePrice(ProductName.CRICKET_BAT, 900.0),
+            120.0
+        )
 
     val ipadProItem = CartItem(ipadProProduct, 1)
     cart.addProduct(CartItem(ipadProProduct, 1))
@@ -26,6 +35,10 @@ fun main() {
     cart.removeProduct(ipadProItem)
 
     printCart(cart, newCart)
+
+    order.placeOrder(cart)
+    val overallPrice = order.getTotalCost(cart)
+    println("Overall price of Order is $overallPrice")
 }
 
 private fun printCart(cart: Cart, newCart: Cart) {
