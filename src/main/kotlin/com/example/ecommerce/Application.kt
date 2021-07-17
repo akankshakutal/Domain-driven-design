@@ -8,7 +8,7 @@ import com.example.ecommerce.domain.Product
 fun main() {
     val cart = Cart()
     val newCart = Cart()
-    val price = Price(100)
+    val price = Price(100.11)
 
     val ipadProItem = CartItem(Product("Ipad Pro",price), 1)
     val heroInkPenItem = CartItem(Product("Hero ink Pen",price), 1)
